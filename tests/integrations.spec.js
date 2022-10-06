@@ -15,7 +15,6 @@ let testProduct = {
 describe("Testes rota /categories", () => {
   it("Testando criacao de categoria", async () => {
     const response = await request(app).post("/categories").send(testCategory);
-
     testCategory.id = response.body.category.id;
     testProduct.category_id = response.body.category.id;
 
@@ -51,8 +50,7 @@ describe("Testes rota /categories", () => {
     expect(response.body.message).toBeDefined();
     expect(response.body.category.name).toContain("Atualizada");
   });
-})
-
+});
 
 describe("Testes rota /products", () => {
   it("Testando criacao de produto", async () => {
@@ -117,7 +115,6 @@ describe("Testes rota /products", () => {
     expect(response.status).toBe(204);
   });
 });
-
 
 describe("Testando casos de erro nas rotas /categories e /products", () => {
   afterAll(async () => {

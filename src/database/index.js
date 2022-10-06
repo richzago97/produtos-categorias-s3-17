@@ -3,11 +3,12 @@ import { Client } from "pg";
 const database = new Client(
   process.env.NODE_ENV === "test"
     ? {
-        user: "",
-        host: "",
-        database: "",
-        password: "",
+        user: "giovana-richard",
+        host: "localhost",
+        database: "tests_products",
+        password: "123456",
         port: 5432,
+        
       }
     : {
         user: process.env.DB_USER,
@@ -20,6 +21,7 @@ const database = new Client(
 
 export const startDatabase = async () => {
   await database.connect();
+  console.log("Database connected!");
 };
 
 export default database;
