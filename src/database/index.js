@@ -8,14 +8,13 @@ const database = new Client(
         database: "tests_products",
         password: "123456",
         port: 5432,
-        
       }
     : {
-        user: process.env.DB_USER,
+        user: "postgres",
         host: process.env.DB_HOST,
-        database: process.env.DB,
-        password: process.env.DB_PASSWORD,
-        port: process.env.DB_PORT,
+        database: process.env.POSTGRES_DB,
+        password: process.env.POSTGRES_PASSWORD,
+        port: 5432,
       }
 );
 
