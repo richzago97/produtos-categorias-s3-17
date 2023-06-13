@@ -57,13 +57,13 @@ Antes de iniciar o serviço, é necessário executar as queries SQL para criar a
 
 2. Abra o DBeaver e conecte-se ao servidor PostgreSQL utilizando as credenciais corretas (nome de usuário, senha, host e porta).
 
-3. Após a conexão ser estabelecida, clique com o botão direito no banco de dados em que deseja executar as queries e selecione "Nova Consulta SQL" ou uma opção similar.
+3. Após a conexão ser estabelecida, clique com o botão direito em "Databases", irá abrir uma janela, clica em "Create New Database e informa o nome da database, como exemplo, o nome será products_management.
 
-4. No editor de consultas SQL, copie todo o conteúdo do arquivo `creates_tables.sql` e cole-o na janela de consulta.
+4. Na database products_management, clique em cima com o botão direito, irá aparecer uma janela, selecione SQL Editor e New SQL Script.
 
-5. Certifique-se de que o banco de dados correto esteja selecionado na parte superior do editor.
+5. Irá aparecer o prompt das queries, copie o código no arquivo do vscode create_tables.sql, cole no prompt.
 
-6. Execute a consulta SQL clicando no botão de execução (geralmente um botão verde com uma seta) ou usando o atalho de teclado adequado.
+6. Agora é só executar a query, você pode clicar na seta amarela para executar ou utilizar o atalho ctrl + enter, lembre-se de selecionar cada comando CREATE com o mouse antes, pois o dbeaver não executa todas as queries com apenas um clique.
 
 7. As queries serão executadas e as tabelas `categories` e `products` serão criadas no banco de dados selecionado.
 
