@@ -43,9 +43,8 @@ cd nome-do-repositorio
 yarn install
 ```
 
-### 3. Configure as variáveis de ambiente
-
-No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
+## 3. Configure as variáveis de ambiente
+No arquivo ```.env```, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável ```postgres_host``` para localhost se estiver executando o projeto de forma local ou para postgres se estiver executando o projeto no Docker.
 
 ## 4. Executando as Queries
 
