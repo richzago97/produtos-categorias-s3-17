@@ -47,6 +47,56 @@ yarn install
 
 No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
 
+Compreendido! Aqui está a atualização na seção "Executando as queries" para criar duas databases, uma para ambiente de testes e outra para desenvolvimento no Insomnia:
+
+## Executando as Queries
+
+Antes de iniciar o serviço, é necessário executar as queries SQL para criar as tabelas necessárias no banco de dados. As queries estão disponíveis no arquivo `creates_tables.sql` no diretório raiz do projeto.
+
+### Método 1: Executando as Queries pelo DBeaver
+
+1. Certifique-se de ter o DBeaver instalado em sua máquina. Você pode baixá-lo em [https://dbeaver.io/](https://dbeaver.io/).
+
+2. Abra o DBeaver e conecte-se ao servidor PostgreSQL utilizando as credenciais corretas (nome de usuário, senha, host e porta).
+
+3. Após a conexão ser estabelecida, clique com o botão direito no banco de dados em que deseja executar as queries e selecione "Nova Consulta SQL" ou uma opção similar.
+
+4. No editor de consultas SQL, copie todo o conteúdo do arquivo `creates_tables.sql` e cole-o na janela de consulta.
+
+5. Certifique-se de que o banco de dados correto esteja selecionado na parte superior do editor.
+
+6. Execute a consulta SQL clicando no botão de execução (geralmente um botão verde com uma seta) ou usando o atalho de teclado adequado.
+
+7. As queries serão executadas e as tabelas `categories` e `products` serão criadas no banco de dados selecionado.
+
+Repita os passos 3 a 7 para criar um banco de dados separado para ambiente de testes, se necessário.
+
+### Método 2: Executando as Queries pelo Terminal
+
+1. Abra o terminal e navegue até o diretório raiz do projeto.
+
+2. Certifique-se de que o serviço do PostgreSQL esteja em execução.
+
+3. Execute o seguinte comando para executar as queries no banco de dados de desenvolvimento:
+
+```bash
+psql -U <seu_usuario> -d products_management -f creates_tables.sql
+```
+
+Substitua `<seu_usuario>` pelo nome de usuário do PostgreSQL que possui permissões para criar tabelas e acesso ao banco de dados `products_management`. Certifique-se de que o banco de dados `products_management` já tenha sido criado anteriormente.
+
+4. Para criar um banco de dados separado para ambiente de testes, execute o seguinte comando:
+
+```bash
+psql -U <seu_usuario> -d tests_products -f creates_tables.sql
+```
+
+Substitua `<seu_usuario>` pelo nome de usuário do PostgreSQL que possui permissões para criar tabelas e acesso ao banco de dados `tests_products`. Certifique-se de que o banco de dados `tests_products` já tenha sido criado anteriormente.
+
+Após a execução bem-sucedida das queries, você estará pronto para iniciar o serviço e utilizar as APIs para gerenciar produtos e categorias.
+
+Certifique-se de que as credenciais de autenticação no arquivo `.env` correspondam às configurações do banco de dados PostgreSQL em sua máquina.
+
 ## Executando o Projeto
 
 Existem duas opções para executar o projeto: utilizando o Docker ou localmente.
