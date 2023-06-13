@@ -10,7 +10,9 @@ app.use(express.json());
 app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 
-export default app.listen(3333, () => {
+const PORT = process.env.PORT || 3000
+
+export default app.listen(PORT, () => {
   console.log("Server running");
   startDatabase();
 });
