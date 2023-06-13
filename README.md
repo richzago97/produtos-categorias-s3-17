@@ -37,9 +37,13 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-3. Configure as variáveis de ambiente no arquivo `.env`, fornecendo as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
+### Configure as variáveis de ambiente
 
-4. Build e suba os containers do Docker utilizando o comando abaixo:
+No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
+
+### Executando o Projeto
+
+Build e suba os containers do Docker utilizando o comando abaixo:
 
 ```bash
 docker-compose up --build
@@ -59,7 +63,9 @@ Para executar os testes, utilize o seguinte comando:
 yarn test
 ```
 
-Os resultados dos testes serão exibidos no terminal.
+Os resultados dos testes serão exibidos no terminal
+
+.
 
 ## Endpoints
 
@@ -77,10 +83,19 @@ A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas re
 | GET    | /products/:id                       | Retorna os dados de um produto específico              |
 | PATCH  | /products/:id                       | Atualiza os dados de um produto específico             |
 | DELETE | /products/:id                       | Deleta um produto do banco                             |
-| GET    | /products/category/:category_id      | Retorna os dados dos produtos pertencentes a uma categoria específica |
+| GET    | /products/category/:category_id     | Retorna os dados dos produtos pertencentes a uma categoria específica |
 
 ## Observações
 
 - Certifique-se de fornecer os valores corretos para as variáveis de ambiente relacionadas ao banco de dados, tanto para o ambiente de desenvolvimento quanto para o ambiente de teste.
 - Ao criar uma nova categoria ou produto, forneça os dados necessários no corpo da solicitação.
 - Certifique-se de ter o Docker instalado e configurado corretamente em seu ambiente de desenvolvimento para executar o projeto usando contêineres.
+- Para executar o projeto localmente sem o uso do Docker, configure corretamente as variáveis de ambiente no arquivo `.env` e utilize o seguinte comando:
+
+```bash
+yarn dev
+```
+
+Isso executará o projeto no endereço `http://localhost:PORT`, onde `PORT` é a porta definida no arquivo `.env`.
+
+Com esta documentação, você terá todas as informações necessárias para instalar, executar e utilizar o serviço de Gerenciamento de Produtos e Categorias.
