@@ -107,7 +107,7 @@ Certifique-se de ter o Docker instalado em seu ambiente de desenvolvimento. Para
 docker-compose up --build
 ```
 
-ATENÇÃO: A porta utilizada para rodar o Docker é a 5431. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
+ATENÇÃO: A porta utilizada para rodar o Docker é a 5432. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
 Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:5431`.
 
