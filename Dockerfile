@@ -1,17 +1,9 @@
-FROM node:16
-
-ENV PORT=3000
-
-EXPOSE 3000
+FROM node
 
 WORKDIR /app
 
-COPY ["package.json", "yarn.lock"] .
+COPY package.json /app
 
 RUN yarn
 
-COPY . . 
-
-# USER giovana-richard
-
-# CMD ["yarn", "start"]
+COPY . /app
