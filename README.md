@@ -1,106 +1,86 @@
-# template_entrega_m4_sp4_richardzago
+# Documentação - Gerenciamento de Produtos e Categorias
 
-# S3-17 | 🏁 Entrega: Produtos e Categorias
+Esta documentação apresenta informações completas sobre o projeto de Gerenciamento de Produtos e Categorias, um serviço de back-end desenvolvido com JavaScript, Node.JS, Express.JS, PostgreSQL e Docker. O projeto permite criar, listar, atualizar e excluir produtos e categorias, além de fornecer endpoints para recuperar informações específicas e filtrar produtos por categoria.
 
-Para inciar este projeto, é necessário instalar as dependências, que serão utilizadas nos testes. Portanto utilize o comando abaixo para instalar tais dependências:
+## Visão Geral
 
-````
-yarn install
-````
+O serviço de Gerenciamento de Produtos e Categorias é uma aplicação back-end que oferece uma API para realizar operações relacionadas a produtos e categorias. Ele utiliza o Node.JS e o framework Express.JS para construir os endpoints da API, enquanto o PostgreSQL é utilizado como banco de dados para armazenar os dados dos produtos e categorias. O Docker é utilizado para facilitar o gerenciamento de dependências e o provisionamento do ambiente de desenvolvimento.
 
+## Tecnologias Utilizadas
 
-**Atenção:** é necessário utilizar o `yarn` pois esse projeto foi iniciado com esse gerenciador de pacotes.
+- JavaScript: Linguagem de programação utilizada para desenvolver o serviço back-end.
+- Node.JS: Ambiente de execução JavaScript utilizado para executar o código do servidor.
+- Express.JS: Framework web utilizado para construir os endpoints da API.
+- PostgreSQL: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar os dados dos produtos e categorias.
+- Docker: Plataforma de contêiner que permite empacotar o aplicativo juntamente com todas as suas dependências em um contêiner isolado.
 
-Para verificar se já possui o gerenciador yarn instalado utilize o seguinte comando:
+## Pré-requisitos
 
-````
-yarn --version
-````
+Antes de começar a executar o projeto, verifique se você possui as seguintes dependências instaladas em seu ambiente de desenvolvimento:
 
-Caso não possua o yarn instalado, utilize o comando abaixo para instalar globalmente na sua máquina:
+- Node.JS: Para instalar o Node.JS, visite o site oficial em https://nodejs.org e siga as instruções para a instalação adequada em seu sistema operacional.
+- Docker: O Docker é necessário para a execução do projeto. Certifique-se de tê-lo instalado em seu ambiente de desenvolvimento. Você pode baixar e instalar o Docker a partir do site oficial em https://www.docker.com/.
 
-````
-npm install --global yarn
-````
-<br>
+## Instalação
 
-# Como alternar entre docker e localhost
+Siga as etapas abaixo para instalar e configurar o projeto:
 
-Essa entrega já está com o Docker configurado e pronto para uso
+1. Clone o repositório do projeto em seu ambiente de desenvolvimento:
 
-Basta buildar e subir nossos containers usando o comando padrão:
-````
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+```
+
+2. Acesse o diretório raiz do projeto:
+
+```bash
+cd nome-do-repositorio
+```
+
+3. Configure as variáveis de ambiente no arquivo `.env`, fornecendo as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
+
+4. Build e suba os containers do Docker utilizando o comando abaixo:
+
+```bash
 docker-compose up --build
-````
+```
 
-ou
-````
-docker compose up --build
-````
-O comando pode variar com a versão do docker compose instalada em sua máquina
+ATENÇÃO: A porta utilizada para rodar o Docker é a 5431. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
-***ATENÇÃO:*** a porta utilizada para rodar nosso docker é a `5431`.
-Caso tenha algum problema com essa porta, basta alterá-la no docker-compose.yml.
+Com isso, o projeto será executado e estará disponível no endereço `http://localhost:5431`.
 
-<br>
+## Testes
 
-## **Mas caso você necessite executar a entrega em `localhost`**
-**Configure as variáveis de ambiente no seu .env**, passando as credenciais corretas para conectar em seu banco local
+O projeto já possui testes automatizados para garantir o correto funcionamento dos endpoints. Certifique-se de ter configurado o banco de dados de teste seguindo as instruções acima.
 
-E altere a variável **`DB_HOST`** para **`localhost`**
+Para executar os testes, utilize o seguinte comando:
 
-Com isso feito, para rodar sua aplicação, basta utilizar o comando
-````
-yarn dev
-````
-
-<br>
-
-# **Sobre os testes**
-
-Essa aplicação possui testes, que serão utilizados para validar, se todas as regras de negócio foram aplicadas de maneira correta.
-
-Os testes estão localizados em `src/__tests__`.
-
-Na subpasta `integration` estão os testes.
-
-
-No arquivo `jest.config.json` estão algumas configurações necessárias para os testes rodarem.
-
-**`De modo algum altere qualquer um desses arquivos.`** Isso poderá comprometer a integridade dos testes.
-
-E também não altere o script de `test` localizado no `package.json`. Isso será utilizado para rodar os testes.
-
-<br>
-
-
-# **Rodando os testes** 
-
-Para rodar os testes é necessário que no seu terminal, você esteja dentro do diretório do projeto.
-
-Estando no terminal e dentro do caminho correto, você poderá utilizar os comandos a seguir:
-
-### Rodar todos os testes
-````
+```bash
 yarn test
-````
-#
-### Rodar todos os testes e ter um log ainda mais completo
-````
-yarn test --all
-````
-#
+```
 
+Os resultados dos testes serão exibidos no terminal.
 
-<br>
+## Endpoints
 
+A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas respectivas responsabilidades:
 
-**Caso você queira verificar todas as opções de execução de testes, visite a [Documentação oficial do Jest](https://jestjs.io/docs/cli)**
+| Método | Endpoint                            | Responsabilidade                                       |
+| ------ | ----------------------------------- | ------------------------------------------------------ |
+| POST   | /categories                         | Criação de uma nova categoria                          |
+| GET    | /categories                         | Lista todas as categorias                              |
+| GET    | /categories/:id                     | Retorna os dados de uma categoria específica           |
+| PATCH  | /categories/:id                     | Atualiza os dados de uma categoria específica          |
+| DELETE | /categories/:id                     | Deleta uma categoria do banco                          |
+| POST   | /products                           | Criação de um novo produto                             |
+| GET    | /products                           | Lista todos os produtos                                |
+| GET    | /products/:id                       | Retorna os dados de um produto específico              |
+| PATCH  | /products/:id                       | Atualiza os dados de um produto específico             |
+| DELETE | /products/:id                       | Deleta um produto do banco                             |
+| GET    | /products/category/:category_id      | Retorna os dados dos produtos pertencentes a uma categoria específica |
 
-Após rodar um dos comandos aparecerá um log no seu terminal, contendo as informações da execução do teste.
+## Observações
 
-**Observação:** O teste pode demorar alguns segundos para ser finalizado. Quanto maior for o teste, mais tempo será consumido para a execução.
-
-#
-
-
+- Certifique-se de fornecer os valores corretos para as variáveis de ambiente relacionadas ao banco de dados, tanto para o ambiente de desenvolvimento quanto para o ambiente de teste.
+- Ao criar uma nova categoria ou produto, forneça os dados necessários no corpo da solicitação.
+- Certifique-se de ter o Docker instalado e configurado corretamente em seu ambiente de desenvolvimento para executar o projeto usando contêineres.
