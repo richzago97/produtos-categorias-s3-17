@@ -153,13 +153,5 @@ A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas re
 
 - Certifique-se de fornecer os valores corretos para as variáveis de ambiente relacionadas ao banco de dados, tanto para o ambiente de desenvolvimento quanto para o ambiente de teste.
 - Ao criar uma nova categoria ou produto, forneça os dados necessários no corpo da solicitação.
-- Certifique-se de ter o Docker instalado e configurado corretamente em seu ambiente de desenvolvimento para executar o projeto usando contêineres.
-- Para executar o projeto localmente sem o uso do Docker, configure corretamente as variáveis de ambiente no arquivo `.env` e utilize o seguinte comando:
-
-```bash
-yarn dev
-```
-
-Isso executará o projeto no endereço `http://localhost:PORT`, onde `PORT` é a porta definida no arquivo `.env`.
 
 Com esta documentação, você terá todas as informações necessárias para instalar, executar e utilizar o serviço de Gerenciamento de Produtos e Categorias.
