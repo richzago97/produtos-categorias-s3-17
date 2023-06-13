@@ -47,8 +47,6 @@ yarn install
 
 No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
 
-Compreendido! Aqui está a atualização na seção "Executando as queries" para criar duas databases, uma para ambiente de testes e outra para desenvolvimento no Insomnia:
-
 ## Executando as Queries
 
 Antes de iniciar o serviço, é necessário executar as queries SQL para criar as tabelas necessárias no banco de dados. As queries estão disponíveis no arquivo `creates_tables.sql` no diretório raiz do projeto.
