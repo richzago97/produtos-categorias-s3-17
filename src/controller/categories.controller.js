@@ -5,7 +5,7 @@ import retrieveCategoriesService from "../services/categories/retrieveCategories
 import updateCategoriesService from "../services/categories/updateCategories.service";
 
 const createCategoriesController = async (req, res) => {
-  const { name } = req.body;
+  const name = req.body.name;
   try {
     const createdCategories = await createCategoriesService(name);
     const { id } = createdCategories;
