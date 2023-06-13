@@ -1,20 +1,23 @@
 version: "3.9"
+
 services:
-  api_express:
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; yarn dev'
-    container_name: api_express
-    image: node:16-alpine
-    build: .
+  api:
+    command: bash -c 'sleep 10 && echo "Starting API..." && while !</dev/tcp/db/5432; do sleep 1; done; yarn dev'
+    container_name: back
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
-    depends_on:
-      - db
     env_file:
       - ./.env
-  db:
+    depends_on:
+      - postgres
+
+  postgres:
     container_name: db
-    image: postgres:12-alpine
+    image: postgres:latest
     ports:
-      - 5431:5432
+      - 5432:5432
     env_file:
       - ./.env
