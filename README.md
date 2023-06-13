@@ -99,7 +99,7 @@ Certifique-se de que as credenciais de autenticação no arquivo `.env` correspo
 
 Existem duas opções para executar o projeto: utilizando o Docker ou localmente.
 
-## Utilizando o Docker
+### 1. Utilizando o Docker
 
 Certifique-se de ter o Docker instalado em seu ambiente de desenvolvimento. Para executar o projeto com o Docker, execute o seguinte comando:
 
@@ -109,11 +109,9 @@ docker-compose up --build
 
 ATENÇÃO: A porta utilizada para rodar o Docker é a 5431. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
-Com isso, o
+Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:5431`.
 
- projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:5431`.
-
-### Executando Localmente
+### 2. Executando Localmente
 
 Para executar o projeto localmente sem o uso do Docker, certifique-se de ter as variáveis de ambiente configuradas corretamente no arquivo `.env`. Em seguida, execute o seguinte comando:
 
