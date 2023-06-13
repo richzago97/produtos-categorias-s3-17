@@ -57,9 +57,9 @@ Antes de iniciar o serviço, é necessário executar as queries SQL para criar a
 
 2. Abra o DBeaver e conecte-se ao servidor PostgreSQL utilizando as credenciais corretas (nome de usuário, senha, host e porta).
 
-3. Após a conexão ser estabelecida, clique com o botão direito em "Databases", irá abrir uma janela, clica em "Create New Database e informa o nome da database, como exemplo, o nome será products_management.
+3. Após a conexão ser estabelecida, clique com o botão direito em "Databases", irá abrir uma janela, clica em "Create New Database" e informa o nome da database, como exemplo, o nome será products_management.
 
-4. Na database products_management, clique em cima com o botão direito, irá aparecer uma janela, selecione SQL Editor e New SQL Script.
+4. Na database products_management, clique em cima com o botão direito, irá aparecer uma janela, selecione "SQL Editor" e "New SQL Script".
 
 5. Irá aparecer o prompt das queries, copie o código no arquivo do vscode create_tables.sql, cole no prompt.
 
