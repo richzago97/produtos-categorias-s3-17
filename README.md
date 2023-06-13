@@ -14,14 +14,14 @@ O serviço de Gerenciamento de Produtos e Categorias é uma aplicação back-end
 - PostgreSQL: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar os dados dos produtos e categorias.
 - Docker: Plataforma de contêiner que permite empacotar o aplicativo juntamente com todas as suas dependências em um contêiner isolado.
 
-## 1. Pré-requisitos
+## Pré-requisitos
 
 Antes de começar a executar o projeto, verifique se você possui as seguintes dependências instaladas em seu ambiente de desenvolvimento:
 
 - Node.JS: Para instalar o Node.JS, visite o site oficial em https://nodejs.org e siga as instruções para a instalação adequada em seu sistema operacional.
-- Docker: O Docker é necessário para a execução do projeto. Certifique-se de tê-lo instalado em seu ambiente de desenvolvimento. Você pode baixar e instalar o Docker a partir do site oficial em https://www.docker.com/.
+- PostgreSQL: O PostgreSQL é necessário para o armazenamento dos dados. Você pode baixar e instalar o PostgreSQL a partir do site oficial em https://www.postgresql.org/. Recomendamos também a instalação do DBeaver (https://dbeaver.io/) como uma interface gráfica para gerenciamento do banco de dados.
 
-## 2. Instalação
+## Instalação
 
 Siga as etapas abaixo para instalar e configurar o projeto:
 
@@ -37,13 +37,23 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-### 3. Configure as variáveis de ambiente
+3. Instale as dependências do projeto utilizando o gerenciador de pacotes de sua preferência (npm ou yarn):
+
+```bash
+yarn install
+```
+
+### Configure as variáveis de ambiente
 
 No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
 
-### 4. Executando o Projeto
+## Executando o Projeto
 
-Build e suba os containers do Docker utilizando o comando abaixo:
+Existem duas opções para executar o projeto: utilizando o Docker ou localmente.
+
+### Utilizando o Docker
+
+Certifique-se de ter o Docker instalado em seu ambiente de desenvolvimento. Para executar o projeto com o Docker, execute o seguinte comando:
 
 ```bash
 docker-compose up --build
@@ -51,21 +61,29 @@ docker-compose up --build
 
 ATENÇÃO: A porta utilizada para rodar o Docker é a 5431. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
-Com isso, o projeto será executado e estará disponível no endereço `http://localhost:5431`.
+Com isso, o
+
+ projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:5431`.
+
+### Executando Localmente
+
+Para executar o projeto localmente sem o uso do Docker, certifique-se de ter as variáveis de ambiente configuradas corretamente no arquivo `.env`. Em seguida, execute o seguinte comando:
+
+```bash
+yarn dev
+```
+
+Isso iniciará o projeto no endereço `http://localhost:PORT`, onde `PORT` é a porta definida no arquivo `.env`.
 
 ## Testes
 
-O projeto já possui testes automatizados para garantir o correto funcionamento dos endpoints. Certifique-se de ter configurado o banco de dados de teste seguindo as instruções acima.
+O projeto possui testes automatizados para garantir seu correto funcionamento. Antes de executar os testes, crie um banco de dados chamado "products_management" para o ambiente de desenvolvimento e um banco de dados chamado "tests_products" para o ambiente de teste.
 
 Para executar os testes, utilize o seguinte comando:
 
 ```bash
 yarn test
 ```
-
-Os resultados dos testes serão exibidos no terminal
-
-.
 
 ## Endpoints
 
@@ -83,7 +101,7 @@ A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas re
 | GET    | /products/:id                       | Retorna os dados de um produto específico              |
 | PATCH  | /products/:id                       | Atualiza os dados de um produto específico             |
 | DELETE | /products/:id                       | Deleta um produto do banco                             |
-| GET    | /products/category/:category_id     | Retorna os dados dos produtos pertencentes a uma categoria específica |
+| GET    | /products/category/:category_id      | Retorna os dados dos produtos pertencentes a uma categoria específica |
 
 ## Observações
 
