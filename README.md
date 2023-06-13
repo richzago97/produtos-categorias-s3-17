@@ -43,9 +43,8 @@ cd nome-do-repositorio
 yarn install
 ```
 
-### 3. Configure as variáveis de ambiente
-
-No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
+## 3. Configure as variáveis de ambiente
+No arquivo ```.env```, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável ```postgres_host``` para localhost se estiver executando o projeto de forma local ou para postgres se estiver executando o projeto no Docker.
 
 ## 4. Executando as Queries
 
@@ -109,7 +108,7 @@ docker-compose up --build
 
 ATENÇÃO: A porta utilizada para rodar o Docker é a 5432. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
-Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:5431`.
+Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:3000`.
 
 ### 2. Executando Localmente
 
@@ -153,5 +152,6 @@ A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas re
 
 - Certifique-se de fornecer os valores corretos para as variáveis de ambiente relacionadas ao banco de dados, tanto para o ambiente de desenvolvimento quanto para o ambiente de teste.
 - Ao criar uma nova categoria ou produto, forneça os dados necessários no corpo da solicitação.
+- Certifique-se que a porta 5432 já não está sendo utilizado ao executar o docker.
 
 Com esta documentação, você terá todas as informações necessárias para instalar, executar e utilizar o serviço de Gerenciamento de Produtos e Categorias.
