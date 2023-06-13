@@ -14,14 +14,14 @@ O serviço de Gerenciamento de Produtos e Categorias é uma aplicação back-end
 - PostgreSQL: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar os dados dos produtos e categorias.
 - Docker: Plataforma de contêiner que permite empacotar o aplicativo juntamente com todas as suas dependências em um contêiner isolado.
 
-## Pré-requisitos
+## 1. Pré-requisitos
 
 Antes de começar a executar o projeto, verifique se você possui as seguintes dependências instaladas em seu ambiente de desenvolvimento:
 
 - Node.JS: Para instalar o Node.JS, visite o site oficial em https://nodejs.org e siga as instruções para a instalação adequada em seu sistema operacional.
 - Docker: O Docker é necessário para a execução do projeto. Certifique-se de tê-lo instalado em seu ambiente de desenvolvimento. Você pode baixar e instalar o Docker a partir do site oficial em https://www.docker.com/.
 
-## Instalação
+## 2. Instalação
 
 Siga as etapas abaixo para instalar e configurar o projeto:
 
@@ -37,11 +37,11 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-### Configure as variáveis de ambiente
+### 3. Configure as variáveis de ambiente
 
 No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
 
-### Executando o Projeto
+### 4. Executando o Projeto
 
 Build e suba os containers do Docker utilizando o comando abaixo:
 
