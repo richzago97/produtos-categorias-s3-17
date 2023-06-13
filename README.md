@@ -52,17 +52,19 @@ Antes de iniciar o serviço, é necessário executar as queries SQL para criar a
 
 ### Método 1: Executando as Queries pelo DBeaver
 
-1. Certifique-se de ter o DBeaver instalado em sua máquina. Você pode baixá-lo em [https://dbeaver.io/](https://dbeaver.io/).
+1. Certifique-se de ter o DBeaver instalado em sua má
+
+quina. Você pode baixá-lo em [https://dbeaver.io/](https://dbeaver.io/).
 
 2. Abra o DBeaver e conecte-se ao servidor PostgreSQL utilizando as credenciais corretas (nome de usuário, senha, host e porta).
 
-3. Após a conexão ser estabelecida, clique com o botão direito em "Databases", irá abrir uma janela, clica em "Create New Database" e informa o nome da database, como exemplo, o nome será products_management.
+3. Após a conexão ser estabelecida, clique com o botão direito em "Databases", irá abrir uma janela, clique em "Create New Database" e informe o nome da database. Como exemplo, o nome será `products_management`.
 
-4. Na database products_management, clique em cima com o botão direito, irá aparecer uma janela, selecione "SQL Editor" e "New SQL Script".
+4. Na database `products_management`, clique com o botão direito, irá aparecer uma janela, selecione "SQL Editor" e "New SQL Script".
 
-5. Irá aparecer o prompt das queries, copie o código no arquivo do vscode create_tables.sql, cole no prompt.
+5. Irá aparecer o prompt das queries, copie o código do arquivo `create_tables.sql` no diretório raiz do projeto e cole no prompt.
 
-6. Agora é só executar a query, você pode clicar na seta amarela para executar ou utilizar o atalho ctrl + enter, lembre-se de selecionar cada comando CREATE com o mouse antes, pois o dbeaver não executa todas as queries com apenas um clique.
+6. Agora é só executar a query. Você pode clicar na seta amarela para executar ou utilizar o atalho ctrl + enter. Lembre-se de selecionar cada comando CREATE com o mouse antes, pois o DBeaver não executa todas as queries com apenas um clique.
 
 7. As queries serão executadas e as tabelas `categories` e `products` serão criadas no banco de dados selecionado.
 
@@ -77,7 +79,7 @@ Repita os passos 3 a 7 para criar um banco de dados separado para ambiente de te
 3. Execute o seguinte comando para executar as queries no banco de dados de desenvolvimento:
 
 ```bash
-psql -U <seu_usuario> -d products_management -f creates_tables.sql
+psql -U <seu_usuario> -d products_management -f create_tables.sql
 ```
 
 Substitua `<seu_usuario>` pelo nome de usuário do PostgreSQL que possui permissões para criar tabelas e acesso ao banco de dados `products_management`. Certifique-se de que o banco de dados `products_management` já tenha sido criado anteriormente.
@@ -85,7 +87,7 @@ Substitua `<seu_usuario>` pelo nome de usuário do PostgreSQL que possui permiss
 4. Para criar um banco de dados separado para ambiente de testes, execute o seguinte comando:
 
 ```bash
-psql -U <seu_usuario> -d tests_products -f creates_tables.sql
+psql -U <seu_usuario> -d tests_products -f create_tables.sql
 ```
 
 Substitua `<seu_usuario>` pelo nome de usuário do PostgreSQL que possui permissões para criar tabelas e acesso ao banco de dados `tests_products`. Certifique-se de que o banco de dados `tests_products` já tenha sido criado anteriormente.
@@ -108,7 +110,9 @@ docker-compose up --build
 
 ATENÇÃO: A porta utilizada para rodar o Docker é a 5432. Caso você tenha algum problema com essa porta, basta alterá-la no arquivo `docker-compose.yml`.
 
-Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `http://localhost:3000`.
+Com isso, o projeto será construído e os containers serão iniciados. O serviço estará disponível no endereço `
+
+http://localhost:3000`.
 
 ### 2. Executando Localmente
 
@@ -129,6 +133,22 @@ Para executar os testes, utilize o seguinte comando:
 ```bash
 yarn test
 ```
+
+## Importando no Insomnia
+
+Caso deseje utilizar o Insomnia para testar as requisições da API, você pode importar o arquivo `workspace.json` fornecido junto com a documentação. Siga as etapas abaixo para importar o workspace no Insomnia:
+
+1. Abra o Insomnia.
+
+2. Clique no botão "+ Create" na barra lateral esquerda.
+
+3. Selecione "Import/Export".
+
+4. Na janela de importação, selecione a opção "Import Data" e escolha o arquivo `workspace.json`.
+
+5. Clique em "Import" e o workspace será importado com todas as requisições pré-configuradas.
+
+Após a importação, você poderá ver as requisições no painel esquerdo do Insomnia após ter clicado em DEBUG, facilitando o teste e uso da API.
 
 ## Endpoints
 
@@ -152,6 +172,6 @@ A tabela a seguir lista os endpoints disponíveis na API, juntamente com suas re
 
 - Certifique-se de fornecer os valores corretos para as variáveis de ambiente relacionadas ao banco de dados, tanto para o ambiente de desenvolvimento quanto para o ambiente de teste.
 - Ao criar uma nova categoria ou produto, forneça os dados necessários no corpo da solicitação.
-- Certifique-se que a porta 5432 já não está sendo utilizado ao executar o docker.
+- Certifique-se de que a porta 5432 não esteja sendo utilizada ao executar o Docker.
 
-Com esta documentação, você terá todas as informações necessárias para instalar, executar e utilizar o serviço de Gerenciamento de Produtos e Categorias.
+Com esta documentação, você terá todas as informações necessárias para instalar, executar e utilizar o serviço de Gerenciamento de Produtos e Categorias, além de importar o workspace no Insomnia para facilitar o teste da API.
