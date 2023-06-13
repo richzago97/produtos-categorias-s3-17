@@ -14,14 +14,14 @@ O serviço de Gerenciamento de Produtos e Categorias é uma aplicação back-end
 - PostgreSQL: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar os dados dos produtos e categorias.
 - Docker: Plataforma de contêiner que permite empacotar o aplicativo juntamente com todas as suas dependências em um contêiner isolado.
 
-## Pré-requisitos
+## 1. Pré-requisitos
 
 Antes de começar a executar o projeto, verifique se você possui as seguintes dependências instaladas em seu ambiente de desenvolvimento:
 
 - Node.JS: Para instalar o Node.JS, visite o site oficial em https://nodejs.org e siga as instruções para a instalação adequada em seu sistema operacional.
 - PostgreSQL: O PostgreSQL é necessário para o armazenamento dos dados. Você pode baixar e instalar o PostgreSQL a partir do site oficial em https://www.postgresql.org/. Recomendamos também a instalação do DBeaver (https://dbeaver.io/) como uma interface gráfica para gerenciamento do banco de dados.
 
-## Instalação
+## 2. Instalação
 
 Siga as etapas abaixo para instalar e configurar o projeto:
 
@@ -43,11 +43,11 @@ cd nome-do-repositorio
 yarn install
 ```
 
-### Configure as variáveis de ambiente
+### 3. Configure as variáveis de ambiente
 
 No arquivo `.env`, forneça as credenciais corretas para se conectar ao seu banco de dados local. Certifique-se de alterar a variável `DB_HOST` para `localhost`.
 
-## Executando as Queries
+## 4. Executando as Queries
 
 Antes de iniciar o serviço, é necessário executar as queries SQL para criar as tabelas necessárias no banco de dados. As queries estão disponíveis no arquivo `creates_tables.sql` no diretório raiz do projeto.
 
@@ -95,11 +95,11 @@ Após a execução bem-sucedida das queries, você estará pronto para iniciar o
 
 Certifique-se de que as credenciais de autenticação no arquivo `.env` correspondam às configurações do banco de dados PostgreSQL em sua máquina.
 
-## Executando o Projeto
+## 5. Executando o Projeto
 
 Existem duas opções para executar o projeto: utilizando o Docker ou localmente.
 
-### Utilizando o Docker
+## Utilizando o Docker
 
 Certifique-se de ter o Docker instalado em seu ambiente de desenvolvimento. Para executar o projeto com o Docker, execute o seguinte comando:
 
