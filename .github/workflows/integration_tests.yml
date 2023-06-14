@@ -29,11 +29,9 @@ jobs:
           TEST_DATABASE: ${{ secrets.TEST_DATABASE }}
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
           TEST_PORT: ${{ secrets.TEST_PORT }}
-         run: |
-            export PGPASSWORD="$TEST_PASSWORD"
-            psql -U "$TEST_USER" -h "$TEST_HOST" -d "$TEST_DATABASE" -f create_tables.sql
+        run: |
+          export PGPASSWORD="$TEST_PASSWORD"
+          psql -U "$TEST_USER" -h "$TEST_HOST" -d "$TEST_DATABASE" -f create_tables.sql
       
       - name: Run tests
         run: yarn test
-      
-      
