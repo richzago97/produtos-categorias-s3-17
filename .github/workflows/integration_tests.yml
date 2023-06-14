@@ -18,6 +18,15 @@ jobs:
         uses: actions/setup-node@v2.2.0
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Configuração das varíaveis de ambiente
+        run: |
+          echo "TEST_USER=${{ secrets.TEST_USER }}" >> .env
+          echo "TEST_HOST=${{ secrets.TEST_HOST }}" >> .env
+          echo "TEST_DATABASE=${{ secrets.TEST_DATABASE }}" >> .env
+          echo "TEST_PASSWORD=${{ secrets.TEST_PASSWORD }}" >> .env
+          echo "TEST_PORT=${{ secrets.TEST_PORT }}" >> .env
+
       
       - name: Install dependences
         run: yarn
