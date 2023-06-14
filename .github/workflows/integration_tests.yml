@@ -2,57 +2,36 @@ name: Execução dos testes de integração
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  build:
+  integration_tests:
     runs-on: ubuntu-latest
 
-    env:
-      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.2.0
         with:
-          node-version: 14
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Install dependences
+        run: yarn
 
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Esperar por PostgreSQL
-        run: |
-          echo "Waiting for PostgreSQL to start..."
-          until PGPASSWORD=$POSTGRES_PASSWORD psql -h localhost -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT 1" >/dev/null 2>&1; do
-            sleep 2
-          done
-          echo "PostgreSQL started"
-
-      - name: Execute database queries
-        run: |
-          PGPASSWORD=$POSTGRES_PASSWORD psql -h localhost -U $POSTGRES_USER -d $POSTGRES_DB -f creates_tables.sql
-
+      - name: Configure .env
+        env:
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_HOST: ${{ secrets.TEST_HOST }}
+          TEST_DATABASE: ${{ secrets.TEST_DATABASE }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          TEST_PORT: ${{ secrets.TEST_PORT }}
+        run: psql -U $TEST_USER -h $TEST_HOST -d $TEST_DATABASE -f create_tables.sql
+      
       - name: Run tests
         run: yarn test
+      
+      
